@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_EXTERNAL_BOOKS } from '../graphql/queries';
 import BookCard from '../components/Bookcard';
 
-const Home = () => {
+const Home = ({ addToCart }) => {
   const { loading, error, data } = useQuery(GET_EXTERNAL_BOOKS);
 
   if (loading) return <p>Loading...</p>;
@@ -12,10 +12,11 @@ const Home = () => {
   return (
     <div className="book-list">
       {data.externalBooks.map((book) => (
-        <BookCard key={book.id} book={book} />
+        <BookCard key={book.id} book={book} addToCart={addToCart} />
       ))}
     </div>
   );
 };
 
 export default Home;
+
