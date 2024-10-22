@@ -1,13 +1,13 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('mongoose');
-const typeDefs = require('./schema/typeDefs');
-const resolvers = require('./resolvers/userResolvers');
-const authMiddleware = require('./middleware/auth');
+const typeDefs = require('./server/schema/typeDefs');
+const resolvers = require('./server/resolvers/userResolvers');
+const authMiddleware = require('./server/middleware/auth');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 const server = new ApolloServer({
   typeDefs,
