@@ -12,12 +12,20 @@ const typeDefs = gql`
     image: String
   }
 
-  type Post {
+  type Review {
     id: ID!
-    title: String!
+    bookId: ID!
+    username: String!
     content: String!
-    author: String!
+    rating: Int!
     createdAt: String!
+  }
+
+  type User {
+    id: ID!
+    username: String!
+    email: String!
+    token: String
   }
 
   type Query {
@@ -31,9 +39,13 @@ const typeDefs = gql`
     updateBook(id: ID!, title: String, author: String, description: String, price: Float, stock: Int, image: String): Book
     deleteBook(id: ID!): Book
 
-    addPost(title: String!, content: String!, author: String!): Post
-    updatePost(id: ID!, title: String, content: String): Post
-    deletePost(id: ID!): Post
+    addReview(bookId: ID!, username: String!, content: String!, rating: Int!): Review
+    updateReview(id: ID!, content: String, rating: Int): Review
+    deleteReview(id: ID!): Review
+    
+    register(username: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): User
+
   }
 `;
 
