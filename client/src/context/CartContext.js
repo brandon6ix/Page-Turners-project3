@@ -1,24 +1,29 @@
 import React, { createContext, useState } from 'react';
 
+// Create a context
 export const CartContext = createContext();
 
+// CartProvider component that will wrap the app
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  const addToCart = (book) => {
-    setCartItems((prevItems) => [...prevItems, book]);
+  // Function to add items to the cart
+  const addToCart = (item) => {
+    setCart((prevCart) => [...prevCart, item]);
   };
 
-  const removeFromCart = (bookId) => {
-    setCartItems((prevItems) => prevItems.filter(item => item.id !== bookId));
+  // Function to remove items from the cart
+  const removeFromCart = (itemToRemove) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== itemToRemove.id));
   };
 
+  // Function to clear the cart
   const clearCart = () => {
-    setCartItems([]);
+    setCart([]);
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
