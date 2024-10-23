@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
 
-// Define the schema for an order
+
 const orderSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Reference to the User model
+    ref: 'User', 
     required: true,
   },
   books: [
     {
       book: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Book', // Reference to the Book model
+        ref: 'Book', 
         required: true,
       },
       quantity: {
         type: Number,
         required: true,
-        min: 1, // Minimum quantity of 1
+        min: 1, 
       },
     },
   ],
@@ -27,16 +27,16 @@ const orderSchema = new mongoose.Schema({
   },
   orderDate: {
     type: Date,
-    default: Date.now, // Default to current date and time
+    default: Date.now, 
   },
   status: {
     type: String,
     enum: ['Pending', 'Completed', 'Cancelled'],
-    default: 'Pending', // Default status
+    default: 'Pending', 
   },
 });
 
-// Create the Order model
+
 const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;
