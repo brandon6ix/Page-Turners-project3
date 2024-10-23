@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 
 const generateToken = (user) => {
@@ -11,7 +11,7 @@ const generateToken = (user) => {
 
 const resolvers = {
   Query: {
-    me: async (_, __, { user }) => {
+    me: async (_, __, { user }) => {    // ned to be in typeDefs
       if (!user) throw new Error('Not authenticated');
       return await User.findById(user.id);
     }

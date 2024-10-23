@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { REGISTER_USER } from '../graphql/mutations';
+import { useParams, Link } from 'react-router-dom';
 
 const Signup = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
