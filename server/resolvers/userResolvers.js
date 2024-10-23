@@ -11,7 +11,7 @@ const generateToken = (user) => {
 
 const resolvers = {
   Query: {
-    me: async (_, __, { user }) => {    // ned to be in typeDefs
+    me: async (_, __, { user }) => {    // need to be in typeDefs
       if (!user) throw new Error('Not authenticated');
       return await User.findById(user.id);
     }
