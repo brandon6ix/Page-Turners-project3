@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const reviewSchema = new mongoose.Schema({
   bookId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Book', // Reference to the Book model
+    ref: 'Book', 
     required: true
   },
   username: {
@@ -17,8 +17,8 @@ const reviewSchema = new mongoose.Schema({
   rating: {
     type: Number,
     required: true,
-    min: 1, // Minimum rating
-    max: 5  // Maximum rating
+    min: 1, 
+    max: 5 
   },
   createdAt: {
     type: Date,
