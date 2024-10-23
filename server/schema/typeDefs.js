@@ -27,15 +27,11 @@ const typeDefs = gql`
     token: String
   }
 
-  type OrderBook {
-    book: Book!
-    quantity: Int!
-  }
-
+  
   type Order {
     id: ID!
     user: User!
-    books: [OrderBook!]!
+    books: [Order!]!
     totalAmount: Float!
     orderDate: String!
     status: String!
@@ -46,7 +42,10 @@ const typeDefs = gql`
     book(id: ID!): Book
     externalBooks: [Book]
     orders: [Order!]!
-    order(id: ID!): Order 
+    order(id: ID!): Order
+    me: User
+    reviews: [Review!]!
+    review(id: ID!): Review
   }
 
   type Mutation {
