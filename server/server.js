@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const typeDefs = require('./schema/typeDefs');
 const resolvers = require('./resolvers/userResolvers');
 const authMiddleware = require('./middleware/auth');
-require('dotenv').config();
+// require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
