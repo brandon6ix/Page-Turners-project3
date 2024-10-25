@@ -1,7 +1,7 @@
 # Page Turners
 
 ## Description
-Book Haven is an online bookstore designed to connect readers with a wide variety of books. Users can browse, purchase, and review their favorite titles, as well as make donations to literacy programs. The platform provides a seamless and user-friendly experience, allowing book lovers to find their next great read.
+Page Turners is an online bookstore designed to connect readers with a wide variety of books. Users can browse, purchase, and review their favorite titles, as well as make donations to literacy programs. The platform provides a seamless and user-friendly experience, allowing book lovers to find their next great read.
 
 ## Features
 
