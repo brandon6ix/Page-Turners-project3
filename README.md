@@ -29,7 +29,7 @@ Responsive Design: Fully functional on both mobile and desktop devices.
 
 ### 1. Clone the Repository:
 
-    git clone https://github.com/yourusername/book-haven.git
+    git clone https://github.com/brandon6ix/Page-Turners-project3/
     cd page-turner
 
 ### 2. Install Dependencies: For the server:
