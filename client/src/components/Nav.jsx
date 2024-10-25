@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import Auth from '../graphql/Auth';
+// import Auth from '../graphql/Auth';
 
 export default function Nav() {
   return (
