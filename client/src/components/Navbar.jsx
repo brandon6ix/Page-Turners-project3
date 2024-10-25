@@ -1,16 +1,65 @@
-export default function Nav({ links }) {
-    return (
-      <nav className="navbar navbar-expand-lg bg-secondary">
-        <div className="container-fluid">
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {links.map((link) => link)}
-            </ul>
-          </div>
+// export default function Nav({ links = [] }) { // Default to an empty array if `links` is undefined
+//     return (
+//       <nav className="navbar navbar-expand-lg bg-secondary">
+//         <div className="container-fluid">
+//           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+//             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+//               {links.length > 0 ? (
+//                 links.map((link, index) => (
+//                   <li key={index} className="nav-item">
+//                     {link} {/* Assuming `link` is a JSX element like a <Link> */}
+//                   </li>
+//                 ))
+//               ) : (
+//                 <li className="nav-item">
+//                   <span>No links available</span>
+//                 </li>
+//               )}
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
+//     );
+// }
+
+
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+
+export default function Navbar({ links = [] }) {
+  return (
+    <nav className="navbar navbar-expand-lg bg-secondary">
+      <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {links.map((link, index) => (
+              <li key={index} className="nav-item">
+                {link}
+              </li>
+            ))}
+          </ul>
         </div>
-      </nav>
-    );
-  }
+      </div>
+    </nav>
+  );
+}
+
+
+
+
+// export default function Nav({ links }) {
+//     return (
+//       <nav className="navbar navbar-expand-lg bg-secondary">
+//         <div className="container-fluid">
+//           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+//             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+//               {links.map((link) => link)}
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
+//     );
+//   }
   
 
 

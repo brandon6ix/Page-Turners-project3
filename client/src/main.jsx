@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client'; // Apollo Client
-import client from './graphql/client'; // Import your Apollo Client setup
+// import client from './graphql/client'; // Import your Apollo Client setup
 import { CartProvider } from './context/CartContext'; // Cart Context
 
 import App from './App.jsx';
@@ -28,12 +28,12 @@ const router = createBrowserRouter([
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <StrictMode>
-    <ApolloProvider client={client}>
+  // <StrictMode>
+    // <ApolloProvider client={client}>
       <CartProvider>
         <RouterProvider router={router} />
       </CartProvider>
-    </ApolloProvider>
-  </StrictMode>
+    // </ApolloProvider>
+  // </StrictMode>
 );
 
