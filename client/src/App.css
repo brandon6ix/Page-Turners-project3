@@ -1,8 +1,8 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0rem;
+
 }
 
 .logo {
@@ -39,4 +39,259 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.app {
+  margin:auto;
+}
+
+/* Container for the entire book list page */
+.book-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Title styling */
+.book-list h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Error message container */
+.book-list .error {
+  color: #b30000;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Retry button styling */
+.book-list button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.book-list button:hover {
+  background-color: #0056b3;
+}
+
+/* BookCard component styling */
+.book-card {
+  width: 100%;
+  max-width: 250px;
+  background-color: #fff;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+.book-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.book-card h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.book-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Button to add to cart */
+.book-card button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.book-card button:hover {
+  background-color: #218838;
+}
+
+
+/* Center and style the form container */
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* Input field styling */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styling */
+form button {
+  padding: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Loading and error messages */
+form p {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #333;
+  text-align: center;
+}
+
+form p.loading {
+  color: #007bff;
+}
+
+form p.error {
+  color: #b30000;
+}
+
+/* Center the card container */
+.card {
+  max-width: 600px;
+  margin: 100px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+.card-header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+.card-header code {
+  background-color: #444;
+  padding: 2px 4px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  color: #ffcc00;
+}
+
+
+/* Basic reset for header and nav */
+header {
+  max-width: 160vh;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  background-color: #343a40;
+  padding: 1rem;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover and active styles */
+.nav-link:hover,
+.nav-link:focus {
+  color: #ffcc00;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.nav-link.active {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Navbar responsive behavior */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+
+.title {
+float: left;
+  color:#a5a890;
 }

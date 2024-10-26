@@ -46,7 +46,6 @@ const Home = ({ addToCart }) => {
 const bookdata = data.externalBooks || [];
   return (
     <div className="book-list">
-      my book
       {bookdata.map((book) => (
         <BookCard key={book.id} book={book} addToCart={addToCart} />
       ))}
