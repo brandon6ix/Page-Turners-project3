@@ -14,7 +14,7 @@ const resolvers = {
     ...userResolvers.Mutation,
     ...bookResolvers.Mutation,
     ...reviewResolvers.Mutation,
-    ...bookResolvers.Mutation,
+    ...orderResolvers.Mutation,
   }
 };
 
