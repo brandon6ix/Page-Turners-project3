@@ -66,23 +66,28 @@
 
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom"; // Remove BrowserRouter here
-import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-import Navbar from './components/Navbar'; // Keep Navbar outside Outlet for global navigation
-import './App.css';
+import Navbar from "./components/Navbar"; // Keep Navbar outside Outlet for global navigation
+import "./App.css";
 
 // Setup Apollo Client
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -108,10 +113,18 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div className="app">
-        <Navbar />
-        {/* Render child routes like Home, Login, Signup */}
-        <Outlet />  
+      
+        <header className = "nav">
+          <span>
+            
+          <Navbar />
+          
+          </span>
+        </header>
+<div className="app">
+        <div classname="bookpos">
+        <Outlet />
+        </div>
       </div>
     </ApolloProvider>
   );

@@ -28,15 +28,18 @@ import { useParams, Link } from 'react-router-dom';
 
 export default function Navbar({ links = [] }) {
   return (
+    <header>
     <nav className="navbar navbar-expand-lg bg-secondary">
       <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <h1 className= 'title'>PageTurners Book Store</h1>
+
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                    <Link key={1} className="nav-link text-light" to="/">
           Home
         </Link>,
         <Link key={2} className="nav-link text-light" to="/login">
-          Log In
+          LogIn
         </Link>,
         <Link key={3} className="nav-link text-light" to="/signup">
         Signup
@@ -46,6 +49,7 @@ export default function Navbar({ links = [] }) {
         </div>
       </div>
     </nav>
+    </header>
   );
 }
 
