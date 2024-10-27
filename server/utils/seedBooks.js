@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Book = require('../models/Book');
-require('dotenv').config();
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 
 const connectDB = async () => {
   try {
