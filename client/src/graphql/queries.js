@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const GET_EXTERNAL_BOOKS = gql`
-  query GetExternalBooks {
-    externalBooks {
+export const GET_BOOKS = gql`
+  query GetBooks {
+    books {
       id
       title
       author

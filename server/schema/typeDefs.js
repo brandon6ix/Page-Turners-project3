@@ -30,15 +30,19 @@ const typeDefs = gql`
   type Order {
     id: ID!
     user: User!
-    books: [Order!]!
+    books: [OrderBook!]!
     totalAmount: Float!
     orderDate: String!
     status: String!
   }
 
+  type OrderBook {
+    book: Book!
+    quantity: Int!
+  }
+
   type Query {
     books: [Book]
-
     book(id: ID!): Book
     externalBooks: [Book]
     orders: [Order!]!
@@ -57,6 +61,7 @@ const typeDefs = gql`
       stock: Int!
       image: String
     ): Book
+
     updateBook(
       id: ID!
       title: String
@@ -66,6 +71,7 @@ const typeDefs = gql`
       stock: Int
       image: String
     ): Book
+
     deleteBook(id: ID!): Book
 
     addReview(
@@ -74,10 +80,14 @@ const typeDefs = gql`
       content: String!
       rating: Int!
     ): Review
+
     updateReview(id: ID!, content: String, rating: Int): Review
+
     deleteReview(id: ID!): Review
 
     createOrder(userId: ID!, books: [OrderInput!]!): Order!
+    updateOrder(id: ID!, status: String!): Order!
+    deleteOrder(id: ID!): Order!  # Added deleteOrder mutation
 
     register(username: String!, email: String!, password: String!): User
     login(email: String!, password: String!): User
