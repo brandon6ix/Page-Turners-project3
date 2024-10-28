@@ -22,7 +22,7 @@ const seedBooks = async () => {
       description: "A novel about the American dream...",
       price: 10.99,
       stock: 50,
-      image: "images/TheGreatGatsby.jpg",
+      image: "/images/TheGreatGatsby.jpg",
     },
     {
       title: "To Kill a Mockingbird",
@@ -30,7 +30,7 @@ const seedBooks = async () => {
       description: "A novel about racial injustice...",
       price: 12.99,
       stock: 40,
-      image: "images/ToKillAMockingbird.jpg",
+      image: "/images/ToKillAMockingbird.jpg",
     },
     {
       title: "1984",
@@ -38,7 +38,7 @@ const seedBooks = async () => {
       description: "A dystopian novel set in a totalitarian society under constant surveillance.",
       price: 15.99,
       stock: 35,
-      image: "images/1984.jpg",
+      image: "/images/1984.jpg",
     },
     {
       title: "Pride and Prejudice",
@@ -46,7 +46,7 @@ const seedBooks = async () => {
       description: "A classic novel that explores themes of love, class, and societal expectations.",
       price: 9.99,
       stock: 45,
-      image: "images/PrideAndPrejudice.jpg",
+      image: "/images/PrideAndPrejudice.jpg",
     },
     {
       title: "The Catcher in the Rye",
@@ -54,7 +54,7 @@ const seedBooks = async () => {
       description: "A novel about teenage rebellion and alienation told through the voice of Holden Caulfield.",
       price: 11.99,
       stock: 30,
-      image: "images/TheCatcherInTheRye.jpg",
+      image: "/images/TheCatcherInTheRye.jpg",
     },
     {
       title: "Moby-Dick",
@@ -62,7 +62,7 @@ const seedBooks = async () => {
       description: "A whaling voyage narrative exploring obsession, revenge, and the human condition.",
       price: 14.99,
       stock: 25,
-      image: "images/MobyDick.jpg",
+      image: "/images/MobyDick.jpg",
     },
     {
       title: "The Hobbit",
@@ -70,7 +70,7 @@ const seedBooks = async () => {
       description: "A fantasy novel about the journey of Bilbo Baggins, who sets out on an adventure to win treasure guarded by a dragon.",
       price: 13.99,
       stock: 55,
-      image: "images/TheHobbit.jpg",
+      image: "/images/TheHobbit.jpg",
     },
     {
       title: "War and Peace",
@@ -78,7 +78,7 @@ const seedBooks = async () => {
       description: "A historical epic set during the Napoleonic wars, exploring Russian society, love, and war.",
       price: 19.99,
       stock: 20,
-      image: "images/WarAndPeace.jpg",
+      image: "/images/WarAndPeace.jpg",
     }
   ];
 
