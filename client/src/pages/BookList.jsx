@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_BOOKS } from "../graphql/queries";
 import { CartContext } from "../context/CartContext";
-import Bookcard from "../components/Bookcard"; // Import Bookcard component
+import { useContext } from "react";
+import Bookcard from "../components/Bookcard";
 
 function BookList() {
   const { loading, error, data } = useQuery(GET_BOOKS);
