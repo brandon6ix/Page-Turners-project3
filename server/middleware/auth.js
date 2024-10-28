@@ -1,14 +1,19 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const secret = 'your_jwt_secret';
+
 
 const authMiddleware = async (req) => {
   const authHeader = req.headers.authorization || '';
-
+  
+  const expiration = '2h';
   if (authHeader) {
     const token = authHeader.split('Bearer ')[1];
     if (token) {
+      console.log("youse loggin in brother");
+      console.log(token)
       try {
-        const { userId } = jwt.verify(token, process.env.JWT_SECRET);
+        const { userId } = jwt.verify(token, secret, { maxAge: expiration });
         const user = await User.findById(userId); 
         if (!user) throw new Error('User not found');
         return user; 

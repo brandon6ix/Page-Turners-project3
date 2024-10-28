@@ -21,7 +21,7 @@ Bookcard.propTypes = {
     description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   }).isRequired,
-  addToCart: PropTypes.func.isRequired,
+  addToCart: PropTypes.func,
 };
 
 export default Bookcard;

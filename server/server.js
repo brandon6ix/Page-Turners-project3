@@ -7,6 +7,7 @@ const typeDefs = require('./schema/typeDefs');
 const resolvers = require('./resolvers');
 const db = require('./config/connection');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 

@@ -27,7 +27,7 @@ const Home = ({ addToCart }) => {
 };
 
 Home.propTypes = {
-  addToCart: PropTypes.func.isRequired,
+  addToCart: PropTypes.func,
 };
 
 export default Home;
