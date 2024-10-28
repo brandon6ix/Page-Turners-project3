@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_BOOKS } from "../graphql/queries";
 import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
+import Bookcard from "../components/Bookcard";
 
 function BookList() {
   const { loading, error, data } = useQuery(GET_BOOKS);
@@ -13,14 +14,11 @@ function BookList() {
   return (
     <div>
       <h1>Book List</h1>
-      <ul>
+      <div className="book-list">
         {data.books.map((book) => (
-          <li key={book.id}>
-            {book.title} by {book.author} - ${book.price}
-            <button onClick={() => addToCart(book)}>Add to Cart</button>
-          </li>
+          <Bookcard key={book.id} book={book} addToCart={addToCart} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

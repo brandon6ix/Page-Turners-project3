@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const Bookcard = ({ book, addToCart }) => {
   return (
@@ -8,11 +8,20 @@ const Bookcard = ({ book, addToCart }) => {
       <p>{book.author}</p>
       <p>{book.description}</p>
       <p>${book.price.toFixed(2)}</p>
-      {/* Add to Cart Button */}
       <button onClick={() => addToCart(book)}>Add to Cart</button>
     </div>
   );
 };
 
-export default Bookcard;
+Bookcard.propTypes = {
+  book: PropTypes.shape({
+    image: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
+  addToCart: PropTypes.func.isRequired,
+};
 
+export default Bookcard;
