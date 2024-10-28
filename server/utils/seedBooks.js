@@ -79,6 +79,14 @@ const seedBooks = async () => {
       price: 19.99,
       stock: 20,
       image: "/images/WarAndPeace.jpg",
+    },
+    {
+      title: "The Da Vinci Code",
+      author: "Dan Brown",
+      description: "A historical thriller novel.",
+      price: 22.99,
+      stock: 55,
+      image: "/images/TheDaVinciCode.jpg",
     }
   ];
 

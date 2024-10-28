@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0rem;
-
 }
 
 .logo {
@@ -42,14 +41,14 @@
 }
 
 .app {
-  margin:auto;
+  margin: auto;
 }
 
 /* Container for the entire book list page */
 .book-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping of book cards */
+  justify-content: space-between; /* Spaces out the items */
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -57,6 +56,7 @@
 
 /* Title styling */
 .book-list h1 {
+  width: 100%; /* Ensure title takes full width */
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #333;
@@ -88,10 +88,9 @@
 
 /* BookCard component styling */
 .book-card {
-  width: 100%;
-  max-width: 250px;
+  width: calc(25% - 20px); /* Adjusts for four cards per row with margin */
+  margin: 10px; /* Spacing between cards */
   background-color: #fff;
-  margin: 10px;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -135,7 +134,6 @@
 .book-card button:hover {
   background-color: #218838;
 }
-
 
 /* Center and style the form container */
 form {
@@ -237,7 +235,6 @@ form p.error {
   color: #ffcc00;
 }
 
-
 /* Basic reset for header and nav */
 header {
   max-width: 160vh;
@@ -290,8 +287,20 @@ header {
   }
 }
 
-
 .title {
-float: left;
-  color:#a5a890;
+  float: left;
+  color: #a5a890;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .book-card {
+    width: calc(50% - 20px); /* Two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .book-card {
+    width: 100%; /* One card per row on mobile */
+  }
 }

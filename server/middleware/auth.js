@@ -8,8 +8,8 @@ const authMiddleware = async (req) => {
     const token = authHeader.split('Bearer ')[1];
     if (token) {
       try {
-        const { userId } = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await User.findById(userId); 
+        const { Id } = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await User.findById(Id); 
         if (!user) throw new Error('User not found');
         return user; 
       } catch (err) {
