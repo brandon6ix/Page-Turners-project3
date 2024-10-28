@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
-      <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" required />
+      <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" required autoComplete='current-password'/>
       <button type="submit">Login</button>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}

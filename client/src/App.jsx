@@ -113,17 +113,14 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      
-        <header className = "nav">
-          <span>
-            
+      <header className="nav">
+        <span>
           <Navbar />
-          
-          </span>
-        </header>
-<div className="app">
-        <div classname="bookpos">
-        <Outlet />
+        </span>
+      </header>
+      <div className="app">
+        <div className="bookpos">
+          <Outlet />
         </div>
       </div>
     </ApolloProvider>
