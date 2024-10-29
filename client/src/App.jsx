@@ -1,0 +1,134 @@
+// import React, { useState } from "react";
+// import { BrowserRouter as Router, Routes, Route, Link, Outlet } from "react-router-dom";
+// import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
+// import { setContext } from '@apollo/client/link/context';
+
+// import Home from "./pages/Home";
+// import Login from "./pages/Login";
+// import Signup from "./pages/Signup";
+// import Cart from "./components/Cart";
+// import Navbar from './components/Navbar';
+// import './App.css';
+
+// // Setup Apollo Client
+// const httpLink = createHttpLink({
+//   uri: '/graphql',
+// });
+
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem('id_token');
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     },
+//   };
+// });
+
+// const client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
+
+// function App() {
+//   // Cart state: an array of items
+//   const [cart, setCart] = useState([]);
+
+//   // Function to add items to the cart
+//   const addToCart = (item) => {
+//     setCart([...cart, item]);
+//   };
+
+//   // Function to remove items from the cart
+//   const removeFromCart = (itemToRemove) => {
+//     setCart(cart.filter((item) => item.id !== itemToRemove.id));
+//   };
+
+//   return (
+//     <ApolloProvider client={client}>
+//       <Router>
+//         <div className="app">
+//           <Navbar />
+//           <Routes>
+//             <Route path="/" element={<Home addToCart={addToCart} />} />
+//             <Route path="/login" element={<Login />} />
+//             <Route path="/signup" element={<Signup />} />
+//             <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+//             <Route path="*" element={<Outlet />} />
+//           </Routes>
+//         </div>
+//       </Router>
+//     </ApolloProvider>
+//   );
+// }
+
+// export default App;
+
+import React, { useState, useEffect, createContext } from "react";
+import { Outlet } from "react-router-dom";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+
+import Navbar from "./components/Navbar";
+import { CartProvider } from './context/CartContext'; // Import CartProvider
+import "./App.css";
+
+// Create a User Context to hold user data
+export const UserContext = createContext(null);
+
+// Setup Apollo Client
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+function App() {
+  const [user, setUser] = useState(null); // State to hold user information
+
+  // Check for user token and set user data on mount
+  useEffect(() => {
+    const token = localStorage.getItem("id_token");
+    if (token) {
+      const userData = JSON.parse(atob(token.split('.')[1])); // Decode the JWT payload
+      setUser(userData); // Set the user data
+    }
+  }, []);
+
+  return (
+    <ApolloProvider client={client}>
+      <UserContext.Provider value={{ user }}>
+        <CartProvider> {/* Wrap your application with CartProvider */}
+          <header className="nav">
+            <Navbar userName={user?.username} />
+          </header>
+          <div className="app">
+            <div className="bookpos">
+              <Outlet />
+            </div>
+          </div>
+        </CartProvider>
+      </UserContext.Provider>
+    </ApolloProvider>
+  );
+}
+
+export default App;

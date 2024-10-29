@@ -1,0 +1,122 @@
+// export default function Nav({ links = [] }) { // Default to an empty array if `links` is undefined
+//     return (
+//       <nav className="navbar navbar-expand-lg bg-secondary">
+//         <div className="container-fluid">
+//           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+//             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+//               {links.length > 0 ? (
+//                 links.map((link, index) => (
+//                   <li key={index} className="nav-item">
+//                     {link} {/* Assuming `link` is a JSX element like a <Link> */}
+//                   </li>
+//                 ))
+//               ) : (
+//                 <li className="nav-item">
+//                   <span>No links available</span>
+//                 </li>
+//               )}
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
+//     );
+// }
+
+
+import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes for prop validation
+import { Link } from 'react-router-dom';
+
+export default function Navbar({ userName }) { // Accept userName as a prop
+  return (
+    <header>
+      <nav className="navbar navbar-expand-lg bg-secondary">
+        <div className="container-fluid">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <h1 className='title'>PageTurners Book Store</h1>
+            
+            {/* Display user's name if available */}
+            {userName && <div className="user-greeting text-light">Welcome, {userName}!</div>}
+
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <Link key={1} className="nav-link text-light" to="/">
+                Home
+              </Link>
+              <Link key={2} className="nav-link text-light" to="/login">
+                Log In
+              </Link>
+              <Link key={3} className="nav-link text-light" to="/signup">
+                Signup
+              </Link>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+// Prop validation for Navbar component
+Navbar.propTypes = {
+  links: PropTypes.array,
+  userName: PropTypes.string, // Validate userName prop as a string
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <Navbar bg='dark' variant='dark' expand='lg'>
+//         <Container fluid>
+//           <Navbar.Brand as={Link} to='/'>
+//             Google Books Search
+//           </Navbar.Brand>
+//           <Navbar.Toggle aria-controls='navbar' />
+//           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
+//             <Nav className='ml-auto d-flex'>
+//               <Nav.Link as={Link} to='/'>
+//                 Search For Books
+//               </Nav.Link>
+//               {/* if user is logged in show saved books and logout */}
+//               {Auth.loggedIn() ? (
+//                 <>
+//                   <Nav.Link as={Link} to='/saved'>
+//                     See Your Books
+//                   </Nav.Link>
+//                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+//                 </>
+//               ) : (
+//                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+//               )}
+//             </Nav>
+//           </Navbar.Collapse>
+//         </Container>
+//       </Navbar>
